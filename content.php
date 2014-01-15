@@ -2,62 +2,79 @@
 /**
  * @package Keyring River
  */
+
+$service_id = $q;
+$categories = array( 'link', 'attachment', 'photo', 'thought', 'retweet' );
+$category = $categories[ rand( 0, count( $categories ) - 1 ) ];
+$services = array( 'twitter', 'dribbble', 'instagram', 'github', 'im' );
+$service = $services[ rand( 0, count( $services ) - 1 ) ];
+$date = date( 'F j, Y', rand( 0, time() ) );
+$data = "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem.";
+
+switch ( $service ) {
+	case 'twitter':
+		$category = 'thought';
+		$date = get_the_time( 'F j, Y' );
+		$data = get_the_content();
+	break;
+}
+
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php keyring_river_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-	<?php else : ?>
-	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'keyring-river' ) ); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'keyring-river' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-	<?php endif; ?>
-
-	<footer class="entry-meta">
-		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
+<li id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
+	<?php if ( $category == 'link' ) { ?>
+		<a target="_blank" href="<?php echo esc_url( $attachment ); ?>">
+	<?php } else if ( strlen($attachment) > 0 || $category == 'link') { ?>
+		<a target="_blank" href="<?php echo esc_url( $link ); ?>">
+	<?php } ?>
+	<div class="icons">
+		<span class="logo <?php echo $service ?>">
 			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$categories_list = get_the_category_list( __( ', ', 'keyring-river' ) );
-				if ( $categories_list && keyring_river_categorized_blog() ) :
+			
+			switch ($service) {
+				case 'twitter':
+					echo "&#xe086;";
+				break;
+				case 'dribbble':
+					echo "&#xe021;";
+				break;
+				case 'instagram':
+					echo "&#xe100;";
+				break;
+				case 'github':
+					echo "&#xe037;";
+				break;
+			}
 			?>
-			<span class="cat-links">
-				<?php printf( __( 'Posted in %1$s', 'keyring-river' ), $categories_list ); ?>
-			</span>
-			<?php endif; // End if categories ?>
-
+		</span><br>
+		<span class="logo category <?php echo $service ?>">
 			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$tags_list = get_the_tag_list( '', __( ', ', 'keyring-river' ) );
-				if ( $tags_list ) :
+			
+			switch ($category) {
+				case 'link':
+				echo "&#128279;";
+				break;
+				case 'photo':
+				echo "";
+				break;
+				case 'thought':
+				echo "";
+				break;
+				case 'retweet':
+				echo "&#128227;";
+				break;
+			}
+			
 			?>
-			<span class="tags-links">
-				<?php printf( __( 'Tagged %1$s', 'keyring-river' ), $tags_list ); ?>
-			</span>
-			<?php endif; // End if $tags_list ?>
-		<?php endif; // End if 'post' == get_post_type() ?>
-
-		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'keyring-river' ), __( '1 Comment', 'keyring-river' ), __( '% Comments', 'keyring-river' ) ); ?></span>
-		<?php endif; ?>
-
-		<?php edit_post_link( __( 'Edit', 'keyring-river' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post-## -->
+		</span>
+	</div>
+	<?php if( substr($attachment, -3) == 'jpg' || substr($attachment, -4) == 'jpeg' || substr($attachment, -3) == 'png' || substr($attachment, -3) == 'png' ) { ?>
+		<div class="attachment" style="background-image: url('<?php echo $attachment ?>')"></div>
+	<?php } ?>
+	<div class="content <?php echo $service ?>">
+		<span class="date"><?php echo $date; ?></span><br>
+		<span class="text"><?php echo $data; ?></span>
+	</div>
+	<?php if ( strlen($attachment) > 0 || $category == 'link' ) { ?>
+		</a>
+	<?php } ?>
+</li>

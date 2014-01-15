@@ -7,7 +7,7 @@
  * @package Keyring River
  */
 ?>
-
+	</ul>
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
@@ -21,6 +21,14 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript">
+	jQuery( function( $ ) {
+		if ( $( window ).width() > 600 ) {
+			stroll.bind( 'ul#content' );
+		}
+	} );
+</script>
 
 </body>
 </html>

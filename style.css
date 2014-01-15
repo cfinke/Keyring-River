@@ -18,8 +18,31 @@ Keyring River is based on Underscores http://underscores.me/, (C) 2012-2013 Auto
 
 */
 
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
 
-body ul {
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
 }
 
 /* =Infinite Scroll
@@ -34,4 +57,52 @@ body ul {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+/* =Navigation
+----------------------------------------------- */
+
+.site-main [class*="navigation"] {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+[class*="navigation"] .nav-previous {
+	float: left;
+	width: 50%;
+}
+[class*="navigation"] .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* =River
+----------------------------------------------- */
+
+.site-content ul.nav li {
+  width: 800px;
+}
+
+.site-content li.header, .site-content li.footer {
+	color: #fff;
+	opacity: 0.75;
+	padding-left: 65px;
+	padding-bottom: 20px;
+	margin-top: 20px;
+}
+
+.site-content .foursquare {
+  color: #2398C9;
+}
+
+.site-content .im {
+	color: #eee;
+}
+
+.site-content .facebook {
+	color: #3B5998;
+}
+
+.site-content .no-service {
+	color: #ddd;
 }

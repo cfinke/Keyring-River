@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 400; /* pixels */
 }
 
 if ( ! function_exists( 'keyring_river_setup' ) ) :
@@ -53,12 +53,6 @@ function keyring_river_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
-	
-	add_theme_support( 'infinite-scroll', array(
-	    'container' => 'content',
-	    'footer' => 'content',
-		'posts_per_page' => 30,
-	) );
 }
 endif; // keyring_river_setup
 add_action( 'after_setup_theme', 'keyring_river_setup' );

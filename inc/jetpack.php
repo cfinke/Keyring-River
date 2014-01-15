@@ -12,8 +12,10 @@
  */
 function keyring_river_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'footer'    => 'page',
+		'container' => 'content',
+		'footer' => false,
+		'wrapper' => false,
+		'posts_per_page' => 30,
 	) );
 }
 add_action( 'after_setup_theme', 'keyring_river_jetpack_setup' );

@@ -13,7 +13,7 @@
 
 get_header(); ?>
 <?php if ( have_posts() ) : ?>
-
+	<li><div class="dot"></div></li>
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 

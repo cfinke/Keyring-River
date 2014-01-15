@@ -24,4 +24,3 @@
 	<?php do_action( 'before' ); ?>
 	<div class="site-content">
 		<ul id="content" class="posts flip">
-			<li><div class="dot"></div></li>

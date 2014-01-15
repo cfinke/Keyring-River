@@ -52,15 +52,19 @@ function keyring_river_post_nav() {
 		return;
 	}
 	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'keyring-river' ); ?></h1>
-		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'keyring-river' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'keyring-river' ) );
-			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+	<ul class="nav">
+		<li class="footer">
+			<nav class="navigation post-navigation" role="navigation">
+				<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'keyring-river' ); ?></h1>
+				<div class="nav-links">
+					<?php
+						previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'keyring-river' ) );
+						next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'keyring-river' ) );
+					?>
+				</div><!-- .nav-links -->
+			</nav><!-- .navigation -->
+		</li>
+	</ul>
 	<?php
 }
 endif;

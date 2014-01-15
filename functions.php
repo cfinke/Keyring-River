@@ -76,16 +76,14 @@ add_action( 'widgets_init', 'keyring_river_widgets_init' );
  * Enqueue scripts and styles.
  */
 function keyring_river_scripts() {
-	wp_enqueue_style( 'keyring-river-style-normal', get_template_directory_uri() . '/external/styles/normal.css' );
-	wp_enqueue_style( 'keyring-river-style-river', get_template_directory_uri() . '/external/styles/styles.css' );
-	wp_enqueue_style( 'keyring-river-style-stroll', get_template_directory_uri() . '/external/styles/stroll.css' );
+	wp_enqueue_style( 'keyring-river-style-stroll', get_template_directory_uri() . '/css/stroll.css' );
 	wp_enqueue_style( 'keyring-river-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'keyring-river-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'keyring-river-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	wp_enqueue_script( 'keyring-river-stroll', get_template_directory_uri() . '/external/js/stroll.js', array( 'jquery' ), '20130115', true );
+	wp_enqueue_script( 'keyring-river-stroll', get_template_directory_uri() . '/js/stroll.js', array( 'jquery' ), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

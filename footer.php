@@ -11,14 +11,5 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
-<script type="text/javascript">
-	jQuery( function( $ ) {
-		if ( $( window ).width() > 600 ) {
-			stroll.bind( '#content' );
-		}
-	} );
-</script>
-
 </body>
 </html>

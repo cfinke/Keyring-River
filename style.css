@@ -624,6 +624,11 @@ body {
 	margin-top: 20px;
 }
 
+.site-content li.comment {
+	color: #fff;
+	opacity: 0.75;
+}
+
 .site-content ul.nav li {
 	width: 800px;
 }

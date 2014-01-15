@@ -1,0 +1,214 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ul::-webkit-scrollbar {
+  width: 0 !important;
+}
+div {
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  display: inline-block;
+}
+::selection {
+  background-color: #26292c;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+span {
+  display: inline-block;
+}
+@font-face {
+  font-family: 'Entypo';
+  src: url('fonts/entypo.eot');
+  src: url('fonts/entypo.eot?#iefix') format('embedded-opentype'), url('fonts/entypo.woff') format('woff'), url('fonts/entypo.ttf') format('truetype'), url('fonts/entypo.svg#Entypo') format('svg');
+  src: url('fonts/entypo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mono Social Icons Font';
+  src: url('fonts/MonoSocialIconsFont-1.10.eot');
+  src: url('fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), url('fonts/MonoSocialIconsFont-1.10.woff') format('woff'), url('fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), url('fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+  src: url('fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@-webkit-keyframes breathe {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scaleout {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
+body {
+  z-index: 0;
+  background-color: #151718;
+  font-family: 'Lato', sans-serif;
+}
+body .dot {
+  margin-left: -5px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #26292c;
+  -webkit-animation: breathe 2s infinite;
+  margin: 50px;
+  margin-left: 45px;
+  margin-bottom: 20px;
+}
+body ul {
+  width: 100%;
+  position: relative;
+  font-size: 18px;
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+  height: 100%;
+  overflow: scroll;
+}
+body ul .loading {
+  display: block;
+  vertical-align: none;
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: scaleout 1s infinite ease-in-out;
+}
+body ul li {
+  width: 600px;
+  padding: 0;
+  margin: 0 auto;
+  transition: all .2s ease;
+  overflow: hidden;
+  position: relative;
+}
+body ul li .icons {
+  float: left;
+  z-index: 2;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  width: 50px;
+  height: 110px;
+  background-color: #151718;
+  text-rendering: optimizeLegibility;
+}
+body ul li .icons .logo {
+  font-family: "Mono Social Icons Font";
+  height: 40px;
+  width: 100%;
+  line-height: 50px;
+  font-size: 60px;
+  text-align: right;
+  opacity: 0.1;
+  transition: all .2s ease;
+}
+body ul li .icons .logo.category {
+  font-size: 40px;
+  font-family: "Entypo";
+  text-align: center;
+}
+body ul li .content {
+  z-index: 2;
+  position: relative;
+  width: 449px;
+  padding: 10px 15px;
+  border-left: 1px solid #26292c;
+  min-height: 110px;
+  transition: all .2s ease;
+}
+body ul li .content .date {
+  font-size: 14px;
+  font-weight: 300;
+  vertical-align: top;
+  opacity: 0.5;
+  margin-bottom: 5px;
+}
+body ul li .content .text {
+  font-weight: 300;
+}
+body ul li .attachment {
+  float: right;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.6;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all .2s ease;
+}
+body ul li:hover .logo,
+body ul li:hover .attachment {
+  opacity: 1;
+}
+body ul li:hover .content {
+  border-left: 1px solid;
+}
+.twitter {
+  color: #55acee;
+}
+.instagram {
+  color: #e1ddd3;
+}
+.dribbble {
+  color: #ea4c89;
+}
+.github {
+  color: #2ecc71;
+}
+@media (max-width: 600px) {
+  body ul {
+    margin-top: 50px;
+    height: auto !important;
+    overflow: visible;
+  }
+  body ul li {
+    width: 100%;
+  }
+  body ul li .dot {
+    display: none;
+  }
+  body ul li .icons {
+    display: none;
+  }
+  body ul li .content {
+    width: 100%;
+    border-left: none;
+    float: left;
+  }
+  body ul li .attachment {
+    opacity: 0.2;
+    position: absolute;
+    width: 100%;
+  }
+  body ul li:hover .content {
+    border-left: none;
+  }
+  body ul li:hover .attachment {
+    opacity: 1;
+    z-index: 9999;
+  }
+}

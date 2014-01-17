@@ -23,6 +23,10 @@ if ( ! $service ) {
 $date = get_the_time( 'F j, Y g:i a' );
 $data = get_the_content();
 
+if ( empty( $data ) ) {
+	$data = get_the_title();
+}
+
 $original_permalink = get_post_meta( get_the_ID(), $service . '_permalink', true );
 
 switch ( $service ) {
@@ -39,9 +43,24 @@ switch ( $service ) {
 	break;
 	case 'facebook':
 		$category = 'thought';
+		
+		$facebook_id = get_post_meta( get_the_ID(), 'facebook_id', true );
+		
+		if ( $facebook_id && strpos( $facebook_id, '_' ) !== false ) {
+			list( $user_id, $post_id ) = explode( '_', $facebook_id );
+			
+			$original_permalink = "http://facebook.com/$user_id/posts/$post_id";
+		}
 	break;
 	case 'im':
 		$category = 'chat';
+	break;
+	case 'reddit':
+		$category = 'thought';
+		
+		if ( get_post_meta( get_the_ID(), 'raw_import_data', true )->kind == 't3' ) {
+			$category = 'link';
+		}
 	break;
 }
 
@@ -75,6 +94,9 @@ if ( ! $original_permalink )
 				break;
 				case 'facebook':
 					echo "&#xe027;";
+				break;
+				case 'reddit':
+					echo "&#xe069;";
 				break;
 				default:
 					echo "&#xe071;";

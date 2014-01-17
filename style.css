@@ -607,6 +607,10 @@ body {
 	overflow: scroll;
 }
 
+.site-content ul#content {
+	padding-top: 50px;
+}
+
 .site-content ul li {
 	width: 600px;
 	padding: 0;
@@ -622,6 +626,11 @@ body {
 	padding-left: 65px;
 	padding-bottom: 20px;
 	margin-top: 20px;
+}
+
+.site-content li.search {
+	color: #fff;
+	opacity: 1;
 }
 
 .site-content li.comment {
@@ -642,6 +651,9 @@ body {
 	height: 110px;
 	background-color: #151718;
 	text-rendering: optimizeLegibility;
+}
+.site-content ul li.search .icons {
+	height: 55px;
 }
 .site-content ul li .icons .logo {
 	font-family: "Mono Social Icons Font";
@@ -666,6 +678,9 @@ body {
 	border-left: 1px solid #26292c;
 	min-height: 110px;
 	transition: all .2s ease;
+}
+.site-content ul li.search .content {
+	min-height: 0px;
 }
 .site-content ul li .content .date {
 	font-size: 14px;
@@ -718,9 +733,53 @@ body {
 .site-content .facebook {
 	color: #3B5998;
 }
+.site-content .reddit {
+	color: #ff5700;
+}
 .site-content .no-service {
 	color: #ddd;
 }
+
+.search-form {
+	display: inline;
+}
+
+#widgets {
+	position: fixed;
+	top: 50px;
+	right: 25px;
+	opacity: 0.8;
+	text-align: right;
+	height: 100%;
+	overflow: scroll;
+	color: #fff;
+}
+
+input.search-field {
+	background-color: #fff;
+	border: 1px solid #333;
+	padding: 5px;
+	font-size: 14px;
+	width: 300px;
+}
+
+input.search-submit {
+	background-color: #F7F7F7;
+	border-color: #CCC;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	box-shadow: #FFF 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.08) 0px 1px 0px 0px;
+	color: #555;
+	font-size: 13px;
+	height: 26px;
+	padding-bottom: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 0px;
+	vertical-align: baseline;
+}
+
 @media (max-width: 600px) {
 	.site-content ul {
 		margin-top: 50px;

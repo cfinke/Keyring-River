@@ -620,7 +620,7 @@ body {
 	position: relative;
 }
 
-.site-content li.header, .site-content li.footer {
+.site-content li.header {
 	color: #fff;
 	opacity: 0.75;
 	padding-left: 65px;

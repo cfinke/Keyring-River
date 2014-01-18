@@ -13,9 +13,7 @@
 
 get_header(); ?>
 <?php if ( have_posts() ) : ?>
-	<li class="search">
-		<?php get_search_form(); ?>
-	</li>
+	<?php get_search_form(); ?>
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 

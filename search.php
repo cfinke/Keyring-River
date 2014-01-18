@@ -7,9 +7,7 @@
 
 get_header(); ?>
 <li class="post header"><b><?php printf( __( 'Search Results for: %s', 'keyring-river' ), '<span>' . get_search_query() . '</span>' ); ?></b></li>
-<li class="search">
-	<?php get_search_form(); ?>
-</li>
+<?php get_search_form(); ?>
 <?php if ( have_posts() ) : ?>
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>

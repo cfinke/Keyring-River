@@ -7,8 +7,8 @@
 
 get_header(); ?>
 <li class="header">
-	<?php _e( 'Oops! That page can&rsquo;t be found.', 'keyring-river' ); ?>
+	<h1><?php _e( '404 Not Found', 'keyring-river' ); ?></h1>
 	<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'keyring-river' ); ?></p>
-	<?php get_search_form(); ?>
 </li>
+<?php get_search_form(); ?>
 <?php get_footer(); ?>

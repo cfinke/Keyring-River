@@ -12,8 +12,8 @@
  */
 
 get_header(); ?>
+<?php get_search_form(); ?>
 <?php if ( have_posts() ) : ?>
-	<?php get_search_form(); ?>
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -34,5 +34,4 @@ get_header(); ?>
 	<?php get_template_part( 'content', 'none' ); ?>
 
 <?php endif; ?>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

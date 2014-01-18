@@ -12,8 +12,8 @@
 
 get_header(); ?>
 <li class="header"><?php the_title(); ?></li>
+<?php get_search_form(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php get_template_part( 'content' ); ?>
 <?php endwhile; // end of the loop. ?>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

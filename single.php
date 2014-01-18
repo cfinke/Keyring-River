@@ -12,5 +12,4 @@ get_header(); ?>
 
 	<?php keyring_river_post_nav(); ?>
 <?php endwhile; // end of the loop. ?>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

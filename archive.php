@@ -8,6 +8,7 @@
  */
 
 get_header(); ?>
+<?php get_search_form(); ?>
 <?php if ( have_posts() ) : ?>
 	<li class="header">
 		<?php
@@ -91,5 +92,4 @@ get_header(); ?>
 	<?php get_template_part( 'content', 'none' ); ?>
 
 <?php endif; ?>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

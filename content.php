@@ -130,9 +130,9 @@ if ( ! $original_permalink )
 		<div class="attachment" style="background-image: url('<?php echo $attachment ?>')"></div>
 	<?php } ?>
 	<div class="content <?php echo $service ?>">
-		<?php if ( $original_permalink ) { ?><a href="<?php echo esc_url( $original_permalink ); ?>"><?php } ?>
-		<span class="date"><?php echo $date; ?></span>
-		<?php if ( $original_permalink ) { ?></a><?php } ?>
+		<a href="<?php echo esc_url( get_permalink() ); ?>">
+			<span class="date"><?php echo $date; ?></span>
+		</a>
 		<br />
 		<span class="text"><?php echo $data; ?></span>
 	</div>

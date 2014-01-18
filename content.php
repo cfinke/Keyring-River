@@ -61,6 +61,10 @@ switch ( $service ) {
 		if ( get_post_meta( get_the_ID(), 'raw_import_data', true )->kind == 't3' ) {
 			$category = 'link';
 		}
+		else {
+			$data = '<h3>' . esc_html( get_the_title() ). '</h3><div>' . get_the_content() . '</div>';
+		}
+		
 	break;
 }
 

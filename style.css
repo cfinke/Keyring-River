@@ -633,13 +633,17 @@ body {
 	opacity: 1;
 }
 
-.site-content li.comment {
+.site-content li.nav {
 	color: #fff;
 	opacity: 0.75;
 }
 
-.site-content ul.nav li {
-	width: 800px;
+.site-content li.nav.next {
+	text-align: right;
+}
+
+ul.post-nav {
+	margin-top: 20px;
 }
 
 .site-content ul li .icons {
@@ -736,7 +740,7 @@ body {
 .site-content .reddit {
 	color: #ff5700;
 }
-.site-content .no-service {
+.site-content .no-service, .site-content .wordpress {
 	color: #ddd;
 }
 

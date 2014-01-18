@@ -54,61 +54,19 @@ function keyring_river_post_nav() {
 		return;
 	}
 	?>
-	<ul class="nav">
-		<li class="footer">
-			<nav class="navigation post-navigation" role="navigation">
-				<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'keyring-river' ); ?></h1>
-				<div class="nav-links">
-					<?php
-						previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'keyring-river' ) );
-						next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'keyring-river' ) );
-					?>
-				</div><!-- .nav-links -->
-			</nav><!-- .navigation -->
-		</li>
+	<ul class="post-nav">
+		<li class="screen-reader-text header"><h1><?php _e( 'Post navigation', 'keyring-river' ); ?></h1></li>
+		<?php
+		
+		previous_post_link( '<li class="nav prev">%link</li>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'keyring-river' ) );
+		next_post_link(     '<li class="nav next">%link</li>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'keyring-river' ) );
+		
+		?>
 	</ul>
 	<?php
 }
 endif;
 
-if ( ! function_exists( 'keyring_river_comment' ) ) :
-/**
- * Template for comments and pingbacks.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
- */
-function keyring_river_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-
-	?>
-	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? 'comment' : 'parent comment' ); ?>>
-		<?php if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) { ?>
-			<div class="icons">
-				<span class="logo <?php echo $service ?>"></span>
-			</div>
-			<div class="content">
-				<?php _e( 'Pingback:', 'keyring-river' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'keyring-river' ), '<span class="edit-link">', '</span>' ); ?>
-			</div>
-		<?php } else { ?>
-			<div class="icons">
-				<span class="logo comment">
-					&#xe049;
-				</span>
-			</div>
-			<div class="content">
-				<span class="date">
-					<?php printf( _x( '%1$s %2$s', '1: date, 2: time', 'keyring-river' ), get_comment_date(), get_comment_time() ); ?>
-					<?php edit_comment_link( __( 'Edit', 'keyring-river' ), '<span class="edit-link">', '</span>' ); ?>
-				</span><br />
-				<span class="text">
-					<?php comment_text(); ?>
-				</span>
-			</div>
-		<?php } ?>
-	</li>
-	<?php
-}
-endif; // ends check for keyring_river_comment()
 
 if ( ! function_exists( 'keyring_river_posted_on' ) ) :
 /**
